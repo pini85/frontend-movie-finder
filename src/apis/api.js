@@ -6,7 +6,7 @@ if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
 }
 
 if (process.env.NODE_ENV === 'production') {
-  url = '';
+  url = 'http://pinimovies-env.eba-xjx2r76e.us-east-1.elasticbeanstalk.com/';
 }
 
 const api = axios.create({
