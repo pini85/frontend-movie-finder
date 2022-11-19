@@ -17,6 +17,7 @@ import {
   tmdbMovieReviewsApi,
   tmdbMoviesById,
 } from '../../apis/tmdbApi';
+import api from '../../apis/api';
 import omdbApi from '../../apis/omdbApi';
 import torrentApi from '../../apis/torrentApi';
 import subtitlesApi from '../../apis/subtitlesApi';
@@ -84,9 +85,7 @@ export const search = (query) => {
 
 export const fetchMovieSlider = () => async (dispatch) => {
   const data = await tmdbMovieSliderApi();
-  const popularMoviesData = await Promise.all(
-    data.map((movie) => tmdbIdApi(movie.id))
-  );
+  const popularMoviesData = await Promise.all(data.map((movie) => tmdbIdApi(movie.id)));
 
   dispatch({ type: 'FETCH_MOVIE_SLIDER', payload: popularMoviesData });
 };
@@ -343,9 +342,7 @@ export const fetchAdvancedSearch = (page) => async (dispatch, getState) => {
   );
 
   await fetchCastIds(
-    savedSearch && savedSearch.active
-      ? savedSearch.search.writers
-      : search.writersArray,
+    savedSearch && savedSearch.active ? savedSearch.search.writers : search.writersArray,
     writersArray
   );
 
@@ -557,7 +554,8 @@ export const currentPage = (page) => {
 };
 
 export const fetchCurrentUser = () => async (dispatch) => {
-  const user = await axios.get('/api/current_user');
+  const user = await api.get('api/current_user');
+  console.log({ user });
 
   dispatch({ type: 'FETCH_CURRENT_USER', payload: user.data });
 };
