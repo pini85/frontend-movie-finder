@@ -6,7 +6,7 @@ if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
 }
 
 if (process.env.NODE_ENV === 'production') {
-  url = 'https://my-cheap-ass-server.link/';
+  url = 'https://www.my-cheap-ass-server.link/';
 }
 
 const api = axios.create({

@@ -17,7 +17,7 @@ const Login = ({ currentUser, userData }) => {
   }
 
   if (process.env.NODE_ENV === 'production') {
-    url = 'https://my-cheap-ass-server.link';
+    url = 'https://www.my-cheap-ass-server.link';
   }
   let logout = `${url}/api/logout`;
   let login = `${url}/auth/google`;
