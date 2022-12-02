@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import axios from 'axios';
+import api from './apis/api';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 

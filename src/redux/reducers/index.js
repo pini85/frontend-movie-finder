@@ -219,6 +219,7 @@ const currentPageReducer = (page = 1, action) => {
 };
 
 const fetchCurrentUserReducer = (currentUser = null, action) => {
+  console.log({ currentUser });
   if (action.type === 'FETCH_CURRENT_USER') {
     return action.payload;
   }

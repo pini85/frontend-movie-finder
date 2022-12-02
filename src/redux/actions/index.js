@@ -554,7 +554,7 @@ export const currentPage = (page) => {
 };
 
 export const fetchCurrentUser = () => async (dispatch) => {
-  const user = await api.get('api/current_user');
+  const user = await api.get('api/current_user', { withCredentials: true });
   console.log({ user });
 
   dispatch({ type: 'FETCH_CURRENT_USER', payload: user.data });

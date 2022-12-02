@@ -20,7 +20,7 @@ const Login = ({ currentUser, userData }) => {
     url = 'https://www.my-cheap-ass-server.link';
   }
   let logout = `${url}/api/logout`;
-  let login = `${url}/auth/google`;
+  let login = `${url}/auth/google/`;
   console.log({ logout });
   console.log({ login });
 
