@@ -11,7 +11,7 @@ import RouteConfig from './routes/RouteConfig';
 
 const App = ({ theme, fetchCurrentUser }) => {
   useEffect(() => {
-    fetchCurrentUser();
+    // fetchCurrentUser();
   }, []);
 
   useEffect(() => {
@@ -19,6 +19,15 @@ const App = ({ theme, fetchCurrentUser }) => {
       .querySelector('meta[name="theme-color"]')
       .setAttribute('content', '#201021');
   }, [theme]);
+
+  useEffect(() => {
+    const theUser = localStorage.getItem('user');
+
+    if (theUser && !theUser.includes('undefined')) {
+      console.log({ theUser });
+      //  setUser(JSON.parse(theUser));
+    }
+  }, []);
 
   return (
     <div id="app" className={theme}>

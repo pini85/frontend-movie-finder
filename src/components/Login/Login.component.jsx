@@ -1,46 +1,43 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { userData } from '../../redux/actions/index';
+import React, { useEffect, useState } from 'react';
+import useFetch from 'hooks/useFetch';
+import Button from 'components/Button/Button';
+const Login = () => {
+  const { handleGoogle, loading, error } = useFetch(
+    'http://localhost:5000/api/auth/google/login'
+  );
+  const user = localStorage.getItem('user');
+  const handleLogOut = () => {
+    localStorage.removeItem('user');
+    window.location.reload();
+  };
 
-import Button from '../Button/Button';
-const Login = ({ currentUser, userData }) => {
   useEffect(() => {
-    const fetchUserData = async () => {
-      await userData();
-    };
-    fetchUserData();
-  }, [currentUser, userData]);
+    if (user) return;
+    /* global google */
+    if (window.google) {
+      google.accounts.id.initialize({
+        client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
+        callback: handleGoogle,
+      });
 
-  let url;
-  if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
-    url = 'http://localhost:5000';
-  }
-
-  if (process.env.NODE_ENV === 'production') {
-    url = 'https://www.my-cheap-ass-server.link';
-  }
-  let logout = `${url}/api/logout`;
-  let login = `${url}/auth/google/`;
-  console.log({ logout });
-  console.log({ login });
+      google.accounts.id.renderButton(document.getElementById('signUpDiv'), {
+        type: 'standard',
+        theme: 'outline',
+        size: 'medium',
+        text: 'signin_with',
+        shape: 'pill',
+        locale: 'en',
+      });
+      google.accounts.id.prompt();
+    }
+  }, [handleGoogle, user]);
 
   return (
     <>
-      {currentUser ? (
-        <a href={logout}>
-          <Button title="logout" icon={false}></Button>
-        </a>
-      ) : (
-        <a href={login}>
-          <Button title="sign in with google" icon="google"></Button>
-        </a>
-      )}
+      {!user && <div id="signUpDiv" data-text="signup_with"></div>}
+      {user && <Button title="logout" handleClick={handleLogOut} />}
     </>
   );
 };
-const mapStateToProps = (state) => ({
-  currentUser: state.fetchCurrentUser,
-});
-export default connect(mapStateToProps, {
-  userData: userData,
-})(Login);
+
+export default Login;
