@@ -4,7 +4,9 @@ import { user as setUser } from 'redux/actions/index';
 import useGoogleLogin from 'hooks/useGoogleLogin';
 import Button from 'components/Button/Button';
 const Login = () => {
-  const { handleGoogle } = useGoogleLogin('http://localhost:5000/api/auth/google/login');
+  const { handleGoogle, error } = useGoogleLogin(
+    'http://localhost:5000/api/auth/google/login'
+  );
 
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
@@ -14,7 +16,7 @@ const Login = () => {
     dispatch(setUser(null));
     // window.location.reload();
   };
-  console.log({ user });
+
   useEffect(() => {
     if (user) return;
 
@@ -39,6 +41,7 @@ const Login = () => {
 
   return (
     <>
+      <h1>{error}</h1>
       {!user && <div id="signUpDiv" data-text="signup_with"></div>}
       {user && <Button title="logout" handleClick={handleLogOut} />}
     </>
