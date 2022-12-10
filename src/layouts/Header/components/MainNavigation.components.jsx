@@ -36,6 +36,6 @@ const MainNavigation = ({ currentUser }) => {
   );
 };
 const mapStateToProps = (state) => ({
-  currentUser: state.fetchCurrentUser,
+  currentUser: state.user,
 });
 export default connect(mapStateToProps)(MainNavigation);

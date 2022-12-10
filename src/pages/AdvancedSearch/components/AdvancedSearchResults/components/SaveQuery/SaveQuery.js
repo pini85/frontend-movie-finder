@@ -13,7 +13,7 @@ const SaveQuery = ({ isSaved, setSaved }) => {
   const queryClient = useQueryClient();
   const { inputData, selectorsData } = useAdvancedForm();
 
-  const userId = useSelector((state) => state.fetchCurrentUser?._id);
+  const userId = useSelector((state) => state.user?._id);
   console.log(userId);
 
   const saveQueryMutation = useMutation((query) => saveQuery(userId, query), {

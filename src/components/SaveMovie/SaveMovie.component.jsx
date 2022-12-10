@@ -7,7 +7,6 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 import * as S from './SaveMovie.styles';
 const SaveMovie = ({ isSaved, movie, id, user }) => {
-
   const queryClient = useQueryClient();
   const [saved, setSaved] = useState(false);
 
@@ -54,7 +53,7 @@ const SaveMovie = ({ isSaved, movie, id, user }) => {
 const mapStateToProps = (state) => {
   if (state.fetchUserData) {
     return {
-      user: state.fetchCurrentUser,
+      user: state.user,
     };
   } else {
     return {};

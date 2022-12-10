@@ -73,7 +73,7 @@ const ShowMovie = ({ userId }) => {
   );
 };
 const mapStateToProps = (state) => ({
-  userId: state.fetchCurrentUser?._id,
+  userId: state.user?._id,
 });
 
 export default connect(mapStateToProps)(ShowMovie);

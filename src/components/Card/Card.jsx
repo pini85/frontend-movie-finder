@@ -11,7 +11,7 @@ import * as S from './Card.styles';
 
 const Card = ({ movie, isSaved }) => {
   const navigate = useNavigate();
-  const user = useSelector((state) => state.fetchCurrentUser);
+  const user = useSelector((state) => state.user);
   const image = () => {
     if (movie.poster_path === null) {
       return 'https://underscoremusic.co.uk/site/wp-content/uploads/2014/05/no-poster.jpg';

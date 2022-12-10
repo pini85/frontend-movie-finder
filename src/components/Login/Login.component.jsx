@@ -17,7 +17,7 @@ const Login = () => {
   console.log({ user });
   useEffect(() => {
     if (user) return;
-    console.log('im here');
+
     /* global google */
     if (window.google) {
       google.accounts.id.initialize({
