@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { user as setUser } from 'redux/actions/index';
-import useFetch from 'hooks/useFetch';
+import useGoogleLogin from 'hooks/useGoogleLogin';
 import Button from 'components/Button/Button';
 const Login = () => {
-  const { handleGoogle, loading, error } = useFetch(
-    'http://localhost:5000/api/auth/google/login'
-  );
+  const { handleGoogle } = useGoogleLogin('http://localhost:5000/api/auth/google/login');
+
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   // const user = localStorage.getItem('user');
@@ -15,11 +14,10 @@ const Login = () => {
     dispatch(setUser(null));
     // window.location.reload();
   };
-
+  console.log({ user });
   useEffect(() => {
     if (user) return;
-    console.log({ user });
-    console.log('IM HERE');
+    console.log('im here');
     /* global google */
     if (window.google) {
       google.accounts.id.initialize({
@@ -37,7 +35,7 @@ const Login = () => {
       });
       google.accounts.id.prompt();
     }
-  }, [handleGoogle]);
+  }, [user]);
 
   return (
     <>

@@ -218,7 +218,7 @@ const currentPageReducer = (page = 1, action) => {
   return page;
 };
 
-const userReducer = (user = null, action) => {
+const userReducer = (user = localStorage.getItem('user'), action) => {
   if (action.type === 'CURRENT_USER') {
     return action.payload;
   }
