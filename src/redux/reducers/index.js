@@ -218,12 +218,11 @@ const currentPageReducer = (page = 1, action) => {
   return page;
 };
 
-const fetchCurrentUserReducer = (currentUser = null, action) => {
-  console.log({ currentUser });
-  if (action.type === 'FETCH_CURRENT_USER') {
+const userReducer = (user = null, action) => {
+  if (action.type === 'CURRENT_USER') {
     return action.payload;
   }
-  return currentUser;
+  return user;
 };
 
 const INITIAL_USER_STATE = {
@@ -304,7 +303,7 @@ export default combineReducers({
   isSecretSequence: isSecretSequenceReducer,
   showSearchResults: showSearchResultsReducer,
   currentPage: currentPageReducer,
-  fetchCurrentUser: fetchCurrentUserReducer,
+  user: userReducer,
   fetchUserData: fetchUserDataReducer,
   userSavedMovies: userSavedMoviesReducer,
   toggleHamburger: toggleHamburgerReducer,

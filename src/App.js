@@ -1,18 +1,14 @@
 import React, { useEffect } from 'react';
-import axios from 'axios';
-import api from './apis/api';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { user } from './redux/actions/index';
 import { BrowserRouter as Router } from 'react-router-dom';
-
-import { fetchCurrentUser } from './redux/actions/index';
 
 import ScrollIntoView from './components/ScrollIntoView.component';
 import RouteConfig from './routes/RouteConfig';
 
-const App = ({ theme, fetchCurrentUser }) => {
-  useEffect(() => {
-    // fetchCurrentUser();
-  }, []);
+const App = () => {
+  const dispatch = useDispatch();
+  const theme = useSelector((state) => state.displayTheme);
 
   useEffect(() => {
     window.document
@@ -25,7 +21,8 @@ const App = ({ theme, fetchCurrentUser }) => {
 
     if (theUser && !theUser.includes('undefined')) {
       console.log({ theUser });
-      //  setUser(JSON.parse(theUser));
+      dispatch(user(JSON.parse(theUser)));
+      // dispatch(user(JSON.stringify(theUser)));
     }
   }, []);
 
@@ -40,10 +37,4 @@ const App = ({ theme, fetchCurrentUser }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  theme: state.displayTheme,
-});
-
-export default connect(mapStateToProps, {
-  fetchCurrentUser: fetchCurrentUser,
-})(App);
+export default App;
