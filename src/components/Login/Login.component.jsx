@@ -6,10 +6,11 @@ import Button from 'components/Button/Button';
 const Login = () => {
   //if production
   let url =
-    process.env === 'production'
+    process.env.NODE_ENV === 'production'
       ? 'https://my-cheap-ass-server/online/api/auth/google/login'
       : 'http://localhost:5000/api/auth/google/login';
 
+  console.log(process.env.NODE_ENV);
   const { handleGoogle, error } = useGoogleLogin(url);
 
   const dispatch = useDispatch();
