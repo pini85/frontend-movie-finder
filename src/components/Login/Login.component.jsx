@@ -4,9 +4,13 @@ import { user as setUser } from 'redux/actions/index';
 import useGoogleLogin from 'hooks/useGoogleLogin';
 import Button from 'components/Button/Button';
 const Login = () => {
-  const { handleGoogle, error } = useGoogleLogin(
-    'http://localhost:5000/api/auth/google/login'
-  );
+  //if production
+  let url =
+    process.env === 'production'
+      ? 'https://my-cheap-ass-server/online/api/auth/google/login'
+      : 'http://localhost:5000/api/auth/google/login';
+
+  const { handleGoogle, error } = useGoogleLogin(url);
 
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
