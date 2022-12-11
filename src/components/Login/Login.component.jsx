@@ -4,10 +4,9 @@ import { user as setUser } from 'redux/actions/index';
 import useGoogleLogin from 'hooks/useGoogleLogin';
 import Button from 'components/Button/Button';
 const Login = () => {
-  //if production
   let url =
     process.env.NODE_ENV === 'production'
-      ? 'https://my-cheap-ass-server.online/api/auth/google/login'
+      ? 'https://www.my-cheap-ass-server.link/api/auth/google/login'
       : 'http://localhost:5000/api/auth/google/login';
 
   console.log(process.env.NODE_ENV);
