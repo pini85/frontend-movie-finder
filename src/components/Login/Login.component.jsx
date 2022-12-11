@@ -7,7 +7,7 @@ const Login = () => {
   //if production
   let url =
     process.env.NODE_ENV === 'production'
-      ? 'https://my-cheap-ass-server/online/api/auth/google/login'
+      ? 'https://my-cheap-ass-server.online/api/auth/google/login'
       : 'http://localhost:5000/api/auth/google/login';
 
   console.log(process.env.NODE_ENV);
