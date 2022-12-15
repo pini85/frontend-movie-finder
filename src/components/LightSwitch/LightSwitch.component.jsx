@@ -1,30 +1,29 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
-import { displayTheme } from "../../redux/actions/index";
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setTheme } from 'redux/slices/ui.slice';
 
-import { Container } from "./LightSwitch.styles";
+import { Container } from './LightSwitch.styles';
 
-const LightSwitch = ({ displayTheme, theme }) => {
+const LightSwitch = () => {
   const [toggle, setToggle] = useState(false);
+
+  const dispatch = useDispatch();
+  const theme = useSelector((state) => state.ui.theme);
   const handleClick = () => {
     setToggle((value) => !value);
-    if (theme !== "dark-theme") {
-      displayTheme("dark-theme");
+    if (theme !== 'dark-theme') {
+      dispatch(setTheme('dark-theme'));
     } else {
-      displayTheme("default-theme");
+      dispatch(setTheme('default-theme'));
     }
   };
   return (
     <Container
       toggle={toggle}
-      style={{ color: "white" }}
+      style={{ color: 'white' }}
       onClick={handleClick}
     ></Container>
   );
 };
-const mapStateToProps = (state) => ({
-  theme: state.displayTheme,
-});
-export default connect(mapStateToProps, {
-  displayTheme: (theme) => displayTheme(theme),
-})(LightSwitch);
+
+export default LightSwitch;

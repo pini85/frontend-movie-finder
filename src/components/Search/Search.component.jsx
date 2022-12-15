@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
+import React, { useState } from 'react';
+
 import { useNavigate } from 'react-router-dom';
 
 import { useForm, FormProvider } from 'react-hook-form';
@@ -8,7 +7,6 @@ import useGetSuggestions from 'hooks/reactQuery/useGetSuggestions';
 import Suggestion from 'components/Suggestions/Suggestions';
 import Button from 'components/Button/Button';
 import Input from 'components/Input/Input.component';
-import useWidth from '../../hooks/useWidth.hooks';
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -17,15 +15,12 @@ const Search = () => {
 
   const methods = useForm();
 
-  const width = useWidth().width;
   let navigate = useNavigate();
-  //! refactor with debounce. look at shani's whatsapp
 
   const handleClick = () => {
     setSearchQuery('');
     navigate(`/search/search/${searchQuery}/page/1`);
   };
-
   const container = {
     display: 'flex',
     alignItems: 'center',
@@ -64,10 +59,4 @@ const Search = () => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  isSending: state.isSending,
-  selectedMovies: state.selectedMovies,
-  query: state.search,
-});
-
-export default compose(connect(mapStateToProps, {}))(Search);
+export default Search;

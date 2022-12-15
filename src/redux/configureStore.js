@@ -1,43 +1,15 @@
-import { createStore, applyMiddleware } from 'redux';
-import * as actionCreators from './actions/index';
-import { persistStore, persistReducer } from 'redux-persist';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import thunk from 'redux-thunk';
-import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
-import reducers from './reducers/index';
-const middleWares = [thunk];
-const persistConfig = {
-  key: 'root',
-  storage,
-  blacklist: [
-    'movieSuggestions',
-    'castSuggestions',
-    'optionActive',
-    'movieSlider',
-    'displayUserAdvancedSearch',
-    'fetchAdvancedSearch',
-    'fetchActors',
-    'fetchMovies',
-    'displayUserAdvancedSearch',
-    'displayMovie',
-    'isFetching',
-    'fetchCurrentUser',
-    'userSavedMovies',
-    'isHamburgerOpen',
-  ],
-};
+import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers } from 'redux';
+import { uiSlice } from './slices/ui.slice';
+import { userSlice } from './slices/user.slice';
 
-const persistedReducer = persistReducer(persistConfig, reducers);
-const composeEnhancers = composeWithDevTools({
-  actionCreators,
-  trace: true,
-  traceLimit: 25,
+const reducers = combineReducers({
+  ui: uiSlice.reducer,
+  user: userSlice.reducer,
 });
 
-export const setUpStore = (initialState) => {
-  return createStore(
-    persistedReducer,
-    initialState,
-    composeEnhancers(applyMiddleware(...middleWares))
-  );
-};
+export const store = configureStore({
+  reducer: reducers,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
+  devTools: process.env.NODE_ENV !== 'production',
+});

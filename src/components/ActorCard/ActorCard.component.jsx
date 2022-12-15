@@ -11,7 +11,7 @@ import {
 } from './ActorCard.styles';
 const ActorCard = ({ actor, handleClick }) => {
   const { data } = useQuery(actor, () => tmdbCastId(actor));
-  console.log({ data });
+
   const profileImg = data?.results[0].profile_path;
 
   return data ? (

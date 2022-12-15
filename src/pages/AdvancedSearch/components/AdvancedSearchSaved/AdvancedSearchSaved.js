@@ -16,7 +16,7 @@ import * as S from './AdvancedSearchSaved.styles.js';
 const AdvancedSearchSaved = () => {
   const queryClient = useQueryClient();
   const { setInputData, setSelectorsData } = useAdvancedForm();
-  const userId = useSelector((state) => state.user?._id);
+  const userId = useSelector((state) => state.user?.user?._id);
 
   const { data, isLoading } = useQuery(
     ['saved-queries', userId],

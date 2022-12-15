@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useMutation, useQueryClient } from 'react-query';
 import { saveMovie, removeSavedMovie } from 'apis/constants';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 import * as S from './SaveMovie.styles';
-const SaveMovie = ({ isSaved, movie, id, user }) => {
+const SaveMovie = ({ isSaved, movie, id }) => {
   const queryClient = useQueryClient();
   const [saved, setSaved] = useState(false);
+  const user = useSelector((state) => state.user?.user);
 
   const saveMovieMutation = useMutation((movie) => saveMovie(user._id, movie), {
     onSuccess: () => queryClient.invalidateQueries('saved-movies', user._id),
@@ -50,14 +50,4 @@ const SaveMovie = ({ isSaved, movie, id, user }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  if (state.fetchUserData) {
-    return {
-      user: state.user,
-    };
-  } else {
-    return {};
-  }
-};
-
-export default connect(mapStateToProps)(SaveMovie);
+export default SaveMovie;

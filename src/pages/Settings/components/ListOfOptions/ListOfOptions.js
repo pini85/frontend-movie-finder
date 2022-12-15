@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { displayTheme, displaySpinner } from 'redux/actions/index';
+import { setTheme, setSpinner } from 'redux/slices/ui.slice.js';
 import ListAnimation from '../ListAnimation/ListAnimation.js';
 import OptionModal from '../OptionModal/OptionModal.js';
 import SpinnerOptionsDisplay from '../OptionModal/SpinnerOptionsDisplay.js';
@@ -9,8 +10,8 @@ import * as S from './ListOfOptions.styles';
 
 const ListOfOptions = ({ type, list }) => {
   const dispatch = useDispatch();
-  const currentSpinner = useSelector((state) => state.displaySpinner);
-  const currentTheme = useSelector((state) => state.displayTheme);
+  const currentSpinner = useSelector((state) => state.ui.spinner);
+  const currentTheme = useSelector((state) => state.ui.theme);
 
   const [option, setOption] = useState(null);
   const [isOpen, setOpen] = useState(false);
@@ -30,9 +31,9 @@ const ListOfOptions = ({ type, list }) => {
     setOpen(false);
     switch (type) {
       case 'spinners':
-        return dispatch(displaySpinner(option));
+        return dispatch(setSpinner(option));
       case 'themes':
-        return dispatch(displayTheme(option));
+        return dispatch(setTheme(option));
     }
   };
 

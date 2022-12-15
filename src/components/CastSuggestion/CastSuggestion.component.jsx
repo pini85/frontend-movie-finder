@@ -1,11 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Container, Img } from './CastSuggestion.styles';
-const CastSuggestion = ({ name, cb, focus }) => {
+const CastSuggestion = ({ name, cb }) => {
   const handleClick = (e) => {
     cb(e.target.innerText);
-    // e.target.blur();
-    // focus(false);
   };
   return (
     <Container onClick={handleClick}>
@@ -14,7 +11,4 @@ const CastSuggestion = ({ name, cb, focus }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  castSuggestion: state.castSuggestion,
-});
-export default connect(mapStateToProps)(CastSuggestion);
+export default CastSuggestion;

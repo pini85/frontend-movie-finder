@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { connect } from 'react-redux';
 
 import * as S from './pagination.styles';
 import useWidth from '../../hooks/useWidth.hooks';
 
-const Pagination = ({ pages, headerHeight }) => {
+const Pagination = ({ pages }) => {
   const params = useParams();
+  const headerHeight = useSelector((state) => state.ui.headerHeight);
   const page = Number(params.page);
   const location = useLocation();
   const navigate = useNavigate();
@@ -129,10 +130,7 @@ const Pagination = ({ pages, headerHeight }) => {
 
   return (
     <S.Container headerHeight={headerHeight}>
-      <S.ButtonContainer
-        disabled={page === 1}
-        onClick={() => handleNavigation(page - 1)}
-      >
+      <S.ButtonContainer disabled={page === 1} onClick={() => handleNavigation(page - 1)}>
         <S.Arrow direction="right">&#8592;</S.Arrow> Prev
       </S.ButtonContainer>
       <S.ButtonContainer onClick={handleFirstNavigation}>First</S.ButtonContainer>
@@ -148,8 +146,4 @@ const Pagination = ({ pages, headerHeight }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  headerHeight: state.setHeaderHeight,
-});
-
-export default connect(mapStateToProps)(Pagination);
+export default Pagination;

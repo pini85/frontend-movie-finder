@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { currentPage } from '../../redux/actions';
-
 import { Container, ButtonContainer } from './pagination.styles';
-import { connect } from 'react-redux';
 
 const Pagination = (props) => {
   const [buttons, setButtons] = useState(null);
@@ -66,10 +63,7 @@ const Pagination = (props) => {
         ? buttons.slice(0, 20).map((page) => {
             return (
               <div className="hiiii" style={{ ovderflow: 'hidden' }}>
-                <ButtonContainer
-                  style={bold(page)}
-                  onClick={(e) => props.jump(page, e)}
-                >
+                <ButtonContainer style={bold(page)} onClick={(e) => props.jump(page, e)}>
                   {page}
                 </ButtonContainer>
               </div>
@@ -79,10 +73,7 @@ const Pagination = (props) => {
           buttons.map((page) => {
             return (
               <div className="hiiii" style={{ ovderflow: 'hidden' }}>
-                <ButtonContainer
-                  style={bold(page)}
-                  onClick={(e) => props.jump(page, e)}
-                >
+                <ButtonContainer style={bold(page)} onClick={(e) => props.jump(page, e)}>
                   {page}
                 </ButtonContainer>
               </div>
@@ -94,10 +85,4 @@ const Pagination = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  currentPageData: state.currentPage,
-});
-
-export default connect(mapStateToProps, {
-  currentPage: currentPage,
-})(Pagination);
+export default Pagination;

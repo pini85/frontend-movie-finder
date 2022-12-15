@@ -1,5 +1,5 @@
 import * as S from './navigation.styles.js';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import NavigationLinks from './NavigationLinks.component';
 import Logo from 'components/Logo/Logo.component';
 import Login from 'components/Login/Login.component';
@@ -9,7 +9,8 @@ import Customize from 'components/Customize/Customize.component';
 import IconLink from 'components/IconLink/IconLink';
 import Hamburger from 'components/Hamburger/Hamburger.component.jsx';
 import useWidth from 'hooks/useWidth.hooks.jsx';
-const MainNavigation = ({ currentUser }) => {
+const MainNavigation = () => {
+  const currentUser = useSelector((state) => state.user.user);
   const width = useWidth().width;
 
   return (
@@ -35,7 +36,5 @@ const MainNavigation = ({ currentUser }) => {
     </>
   );
 };
-const mapStateToProps = (state) => ({
-  currentUser: state.user,
-});
-export default connect(mapStateToProps)(MainNavigation);
+
+export default MainNavigation;

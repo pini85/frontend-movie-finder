@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
-import { TrailerContainer } from './Carousel.styles';
-import YouTube from 'react-youtube';
+
 import './carousel.styles.css';
-import { connect } from 'react-redux';
 import Slider from 'react-slick';
-import MovieCastCarousel from '../MovieCastCarousel/MovieCastCarousel.component';
-import ReviewsCarousel from '../ReviewsCarousel/ReviewsCarousel.component';
 import { CarouselStyling } from './Carousel.styles';
-import useWidth from '../../hooks/useWidth.hooks';
 const Carousel = ({
   slidesToShow,
   type,

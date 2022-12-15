@@ -1,6 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { AnimatePresence, motion } from 'framer-motion';
 import CategoryTitle from 'components/CategoryTitle/CategoryTitle.component';
@@ -68,7 +66,5 @@ const Modal = ({
   //   document.querySelector("#modal")
   // );
 };
-const mapStateToProps = (state) => ({
-  theme: state.displayTheme,
-});
-export default compose(connect(mapStateToProps))(Modal);
+
+export default Modal;

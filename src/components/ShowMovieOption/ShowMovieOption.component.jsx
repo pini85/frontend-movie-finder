@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
 
 import Modal from 'components/Modal/Modal.component';
 import ShowTorrents from 'components/ShowTorrents/ShowTorrents.component';
@@ -41,7 +40,5 @@ const ShowMovieOption = ({ colors, title, type }) => {
     </>
   );
 };
-const mapStateToProps = (state) => ({
-  colors: state.displayMovie.colors,
-});
-export default connect(mapStateToProps)(ShowMovieOption);
+
+export default ShowMovieOption;

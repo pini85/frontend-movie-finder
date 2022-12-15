@@ -1,22 +1,21 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+
 import { motion, AnimatePresence } from 'framer-motion';
 import { Container, HandleBars } from './Hamurger.styles';
-import { toggleHamburger } from '../../redux/actions/index';
 import Navigation from 'components/Navigation/Navigation.component';
-import useDidUpdateEffect from 'hooks/useDidUpdateEffect.hooks';
-const Hamburger = ({ setToggleHamburger, toggleHamburger }) => {
+
+const Hamburger = () => {
+  const [toggleHamburger, setToggleHamburger] = useState(false);
   const location = useLocation();
   const handleClick = (e) => {
-    //prevent bubbling up to the app on click
     e.stopPropagation();
-    setToggleHamburger();
+    setToggleHamburger((value) => !value);
   };
 
-  // useDidUpdateEffect(() => {
-  //   setToggleHamburger();
-  // }, [location]);
+  useEffect(() => {
+    setToggleHamburger(false);
+  }, [location]);
 
   return (
     <Container onClick={(e) => handleClick(e)}>
@@ -37,9 +36,5 @@ const Hamburger = ({ setToggleHamburger, toggleHamburger }) => {
     </Container>
   );
 };
-const mapStateToProps = (state) => ({
-  toggleHamburger: state.toggleHamburger,
-});
-export default connect(mapStateToProps, {
-  setToggleHamburger: toggleHamburger,
-})(Hamburger);
+
+export default Hamburger;

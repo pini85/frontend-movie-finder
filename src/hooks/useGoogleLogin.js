@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { user } from '../redux/actions/index';
+import { setUser } from 'redux/slices/user.slice';
 
 const useGoogleLogin = (url) => {
   const [loading, setLoading] = useState(false);
@@ -21,7 +21,7 @@ const useGoogleLogin = (url) => {
       const data = await credentialsResponse.json();
       if (data?.token && data?.user) {
         localStorage.setItem('token', data.token);
-        dispatch(user(data.user));
+        dispatch(setUser(data.user));
       } else {
         throw new Error(data?.message || data);
       }

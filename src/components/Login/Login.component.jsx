@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { user as setUser } from 'redux/actions/index';
+import { setUser } from 'redux/slices/user.slice';
 import useGoogleLogin from 'hooks/useGoogleLogin';
 import Button from 'components/Button/Button';
 const Login = () => {
@@ -13,7 +13,7 @@ const Login = () => {
   const { handleGoogle, error } = useGoogleLogin(url);
 
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
+  const user = useSelector((state) => state.user.user);
   // const user = localStorage.getItem('user');
   const handleLogOut = () => {
     localStorage.removeItem('token');

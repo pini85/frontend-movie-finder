@@ -5,7 +5,7 @@ import * as S from './SavedMovies.styles';
 import useSavedMovies from 'hooks/reactQuery/useSavedMovies.hooks';
 
 const SavedMovies = () => {
-  const userId = useSelector((state) => state.user?._id);
+  const userId = useSelector((state) => state.user?.user._id);
 
   const { savedMovies } = useSavedMovies(userId);
 

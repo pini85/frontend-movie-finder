@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import ShowMovieInfo from 'components/ShowMovieInfo/ShowMovieInfo.component';
 import Button from 'components/Button/Button';
 
@@ -13,7 +13,8 @@ import * as S from './ShowMovie.styles';
 import useGetMovie from 'hooks/reactQuery/useGetMovie.hooks';
 import useIsSavedMovie from 'hooks/useIsSavedMovie.hooks';
 
-const ShowMovie = ({ userId }) => {
+const ShowMovie = () => {
+  const userId = useSelector((state) => state.user?.user._id);
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -72,8 +73,5 @@ const ShowMovie = ({ userId }) => {
     </>
   );
 };
-const mapStateToProps = (state) => ({
-  userId: state.user?._id,
-});
 
-export default connect(mapStateToProps)(ShowMovie);
+export default ShowMovie;
