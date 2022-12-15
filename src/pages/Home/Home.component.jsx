@@ -25,13 +25,12 @@ const Home = () => {
   const { data } = useQuery(tag, () => apiCall(1), {
     keepPreviousData: true,
   });
+  console.log({ data });
   const { data: movies } = useQuery('movie-slider', tmdbMovieSliderApi);
 
   const renderMovieSliders = () => {
     return movies.map((movie) => {
-      return (
-        <MovieSlider key={movie.id} movie={movie} movies={movies}></MovieSlider>
-      );
+      return <MovieSlider key={movie.id} movie={movie} movies={movies}></MovieSlider>;
     });
   };
 

@@ -7,6 +7,7 @@ import { getSavedMovies } from 'apis/constants';
 import Card from 'components/Card/Card';
 
 const DisplayMovieList = ({ data }) => {
+  console.log({ data });
   const userId = useSelector((state) => state.user?._id);
   const { savedMovies } = useSavedMovies(userId);
 
@@ -20,6 +21,7 @@ const DisplayMovieList = ({ data }) => {
 
   const renderCards = () => {
     return data.map((movie) => {
+      console.log({ movie });
       const isSaved = findSavedMovies(movie.id);
 
       if (movie === null) return;
@@ -27,7 +29,7 @@ const DisplayMovieList = ({ data }) => {
     });
   };
 
-  return <S.Container>{displayMovies && renderCards()}</S.Container>;
+  return <S.Container>{renderCards()}</S.Container>;
 };
 
 export default DisplayMovieList;

@@ -16,7 +16,7 @@ const Login = () => {
   const user = useSelector((state) => state.user);
   // const user = localStorage.getItem('user');
   const handleLogOut = () => {
-    localStorage.removeItem('user');
+    localStorage.removeItem('token');
     dispatch(setUser(null));
     // window.location.reload();
   };

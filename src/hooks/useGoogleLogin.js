@@ -19,8 +19,8 @@ const useGoogleLogin = (url) => {
         body: JSON.stringify({ credential: response.credential }),
       });
       const data = await credentialsResponse.json();
-      if (data?.user) {
-        localStorage.setItem('user', JSON.stringify(data.user));
+      if (data?.token && data?.user) {
+        localStorage.setItem('token', data.token);
         dispatch(user(data.user));
       } else {
         throw new Error(data?.message || data);
