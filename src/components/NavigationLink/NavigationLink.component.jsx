@@ -11,6 +11,4 @@ const NavbarItem = ({ link, children }) => {
   );
 };
 
-export default connect(null, {
-  setCurrentPage: (page) => currentPage(page),
-})(NavbarItem);
+export default NavbarItem;

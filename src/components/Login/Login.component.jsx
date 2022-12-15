@@ -18,7 +18,6 @@ const Login = () => {
   const handleLogOut = () => {
     localStorage.removeItem('token');
     dispatch(setUser(null));
-    // window.location.reload();
   };
 
   useEffect(() => {

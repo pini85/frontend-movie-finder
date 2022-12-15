@@ -2,13 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { useNavigate } from 'react-router-dom';
-import {
-  search,
-  fetchMovies,
-  movieSuggestions,
-  showSearchResults,
-  fetchCastSuggestion,
-} from '../../redux/actions';
 
 import { useForm, FormProvider } from 'react-hook-form';
 import useGetSuggestions from 'hooks/reactQuery/useGetSuggestions';
@@ -73,19 +66,8 @@ const Search = () => {
 
 const mapStateToProps = (state) => ({
   isSending: state.isSending,
-  // fetchMoves: state.fetchMovies,
   selectedMovies: state.selectedMovies,
-  movieSuggestions: state.movieSuggestions,
-  castSuggestions: state.castSuggestions,
   query: state.search,
 });
 
-export default compose(
-  connect(mapStateToProps, {
-    search: search,
-    fetchMovies: (page) => fetchMovies(page),
-    fetchMovieSuggestions: movieSuggestions,
-    showSearchResults: showSearchResults,
-    fetchCastSuggestion: fetchCastSuggestion,
-  })
-)(Search);
+export default compose(connect(mapStateToProps, {}))(Search);

@@ -4,7 +4,6 @@ import Home from 'pages/Home/Home.component';
 import ScrollIntoView from 'components/ScrollIntoView.component';
 import Header from 'layouts/Header/Header.component';
 import MainNavigation from 'layouts/Header/components/MainNavigation.components';
-import AdvancedSearchNew from 'pages/AdvancedSearch/AdvancedSearchNew';
 
 const RouteConfig = () => {
   const ShowMovie = lazy(() => import('components/ShowMovie/ShowMovie.component'));
@@ -13,9 +12,7 @@ const RouteConfig = () => {
   const MovieListSearch = lazy(() =>
     import('components/MovieListSearch/MovieListSearch')
   );
-  const AdvancedSearch = lazy(() =>
-    import('components/AdvancedSearch/AdvancedSearch.component')
-  );
+  const AdvancedSearchNew = lazy(() => import('pages/AdvancedSearch/AdvancedSearchNew'));
   const PopularActors = lazy(() =>
     import('components/PopularActors/PopularActors.component')
   );
