@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setTheme, setSpinner } from '../../../../redux/slices/uiSlice.js';
+import { setTheme, setSpinner } from '../../../../redux/slices/ui.slice.js';
 import ListAnimation from '../ListAnimation/ListAnimation.jsx';
 import OptionModal from '../OptionModal/OptionModal.jsx';
 import SpinnerOptionsDisplay from '../OptionModal/SpinnerOptionsDisplay.jsx';
