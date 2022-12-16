@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { setUser } from '../../redux/slices/user.slice.js';
 import useGoogleLogin from 'hooks/useGoogleLogin';
 import Button from 'components/Button/Button';
+import { redirect } from 'react-router-dom';
 const Login = () => {
+  const navigate = useNavigate();
   let url =
     process.env.NODE_ENV === 'production'
       ? 'https://www.my-cheap-ass-server.link/api/auth/google/login'
@@ -16,6 +19,7 @@ const Login = () => {
   const user = useSelector((state) => state.user.user);
   // const user = localStorage.getItem('user');
   const handleLogOut = () => {
+    navigate('/');
     localStorage.removeItem('token');
     dispatch(setUser(null));
   };
