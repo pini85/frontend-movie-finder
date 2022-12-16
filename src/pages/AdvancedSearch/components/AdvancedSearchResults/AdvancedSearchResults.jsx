@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Button from 'components/Button/Button.jsx';
 import { useAdvancedForm } from 'pages/AdvancedSearch/context/advancedSearchFormContext.jsx';
 import * as S from './AdvancedSearchResults.styles.js';
-import SaveQuery from './components/SaveQuery/SaveQuery.js';
+import SaveQuery from './components/SaveQuery/SaveQuery.jsx';
 
 const AdvancedSearchResults = () => {
   const [isSaved, setSaved] = useState(false);
