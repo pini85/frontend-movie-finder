@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useMutation, useQueryClient } from 'react-query';
 import { useSelector } from 'react-redux';
-import { useAdvancedForm } from 'pages/AdvancedSearch/context/advancedSearchFormContext.js';
+import { useAdvancedForm } from 'pages/AdvancedSearch/context/advancedSearchFormContext.jsx';
 import Modal from 'components/Modal/Modal.component';
 import Button from 'components/Button/Button.jsx';
 import Input from 'components/Input/Input.component.jsx';
