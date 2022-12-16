@@ -10,6 +10,7 @@ import Input from 'components/Input/Input.component';
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  console.log('starting vite');
 
   const { suggestions } = useGetSuggestions(searchQuery, true, true, 4, 2);
 
