@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from 'react-query';
 import { useSelector } from 'react-redux';
-import { useAdvancedForm } from 'pages/AdvancedSearch/context/advancedSearchFormContext.js';
+import { useAdvancedForm } from 'pages/AdvancedSearch/context/advancedSearchFormContext.jsx';
 import { getSaveQuery, removeSaveQuery } from 'apis/constants.js';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

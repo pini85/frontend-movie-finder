@@ -11,7 +11,7 @@ import { tmdbIdApi } from 'apis/tmdbApi.js';
 import 'video.js/dist/video-js.css';
 
 import * as S from './Watch.styles.js';
-import CategoryTitle from 'components/CategoryTitle/CategoryTitle.component';
+import CategoryTitle from '../../components/CategoryTitle/CategoryTitle.component';
 
 const Watch = () => {
   const [name, setName] = useState('');

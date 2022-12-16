@@ -1,25 +1,31 @@
 import React, { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home from 'pages/Home/Home.component';
-import ScrollIntoView from 'components/ScrollIntoView.component';
-import Header from 'layouts/Header/Header.component';
-import MainNavigation from 'layouts/Header/components/MainNavigation.components';
+import Home from '../pages/Home/Home.component.jsx';
+import ScrollIntoView from '../components/ScrollIntoView.component.jsx';
+import Header from '../layouts/Header/Header.component.jsx';
+import MainNavigation from '../layouts/Header/components/MainNavigation.components.jsx';
 
 const RouteConfig = () => {
-  const ShowMovie = lazy(() => import('components/ShowMovie/ShowMovie.component'));
-  const Movies = lazy(() => import('pages/Movies/Movies.component'));
-  const TvShows = lazy(() => import('components/TvShows/TvShows.component'));
+  const ShowMovie = lazy(() => import('../components/ShowMovie/ShowMovie.component.jsx'));
+  const Movies = lazy(() => import('../pages/Movies/Movies.component.jsx'));
+  const TvShows = lazy(() => import('../components/TvShows/TvShows.component.jsx'));
   const MovieListSearch = lazy(() =>
-    import('components/MovieListSearch/MovieListSearch')
+    import('../components/MovieListSearch/MovieListSearch.jsx')
   );
-  const AdvancedSearchNew = lazy(() => import('pages/AdvancedSearch/AdvancedSearchNew'));
+  const AdvancedSearchNew = lazy(() =>
+    import('../pages/AdvancedSearch/AdvancedSearchNew.jsx')
+  );
   const PopularActors = lazy(() =>
-    import('components/PopularActors/PopularActors.component')
+    import('../components/PopularActors/PopularActors.component.jsx')
   );
-  const ActorMovies = lazy(() => import('components/ActorMovies/ActorMovies.component'));
-  const Settings = lazy(() => import('pages/Settings/Settings'));
-  const SavedMovies = lazy(() => import('components/SavedMovies/SavedMovies.component'));
-  const Watch = lazy(() => import('pages/Watch/Watch'));
+  const ActorMovies = lazy(() =>
+    import('../components/ActorMovies/ActorMovies.component.jsx')
+  );
+  const Settings = lazy(() => import('../pages/Settings/Settings.jsx'));
+  const SavedMovies = lazy(() =>
+    import('../components/SavedMovies/SavedMovies.component.jsx')
+  );
+  const Watch = lazy(() => import('../pages/Watch/Watch.jsx'));
 
   return (
     <>

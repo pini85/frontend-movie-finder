@@ -1,4 +1,4 @@
-import useGetSuggestions from 'hooks/reactQuery/useGetSuggestions.js';
+import useGetSuggestions from 'hooks/reactQuery/useGetSuggestions.jsx';
 const useActorsDataInput = ({ searchQuery, type }) => {
   const settings = {
     searchQuery,

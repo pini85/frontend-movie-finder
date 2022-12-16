@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setTheme } from 'redux/slices/ui.slice';
+import { setTheme } from '../../redux/slices/ui.slice.js';
 
 import { Container } from './LightSwitch.styles';
 

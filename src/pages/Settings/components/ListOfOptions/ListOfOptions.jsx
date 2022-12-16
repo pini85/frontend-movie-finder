@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { displayTheme, displaySpinner } from 'redux/actions/index';
-import { setTheme, setSpinner } from 'redux/slices/ui.slice.js';
-import ListAnimation from '../ListAnimation/ListAnimation.js';
-import OptionModal from '../OptionModal/OptionModal.js';
-import SpinnerOptionsDisplay from '../OptionModal/SpinnerOptionsDisplay.js';
-import ThemeOptionsDisplay from '../OptionModal/ThemeOptionsDsplay.js';
+import { setTheme, setSpinner } from '../../../../redux/slices/uiSlice.js';
+import ListAnimation from '../ListAnimation/ListAnimation.jsx';
+import OptionModal from '../OptionModal/OptionModal.jsx';
+import SpinnerOptionsDisplay from '../OptionModal/SpinnerOptionsDisplay.jsx';
+import ThemeOptionsDisplay from '../OptionModal/ThemeOptionsDsplay.jsx';
 import * as S from './ListOfOptions.styles';
 
 const ListOfOptions = ({ type, list }) => {

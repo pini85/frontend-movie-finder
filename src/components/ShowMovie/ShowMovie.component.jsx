@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import ShowMovieInfo from 'components/ShowMovieInfo/ShowMovieInfo.component';
+import ShowMovieInfo from '../../components/ShowMovieInfo/ShowMovieInfo.component';
 import Button from 'components/Button/Button';
 
 import MovieCast from 'components/MovieCast/MovieCast.component';
@@ -14,7 +14,7 @@ import useGetMovie from 'hooks/reactQuery/useGetMovie.hooks';
 import useIsSavedMovie from 'hooks/useIsSavedMovie.hooks';
 
 const ShowMovie = () => {
-  const userId = useSelector((state) => state.user?.user._id);
+  const userId = useSelector((state) => state.user?.user?._id);
   const navigate = useNavigate();
   const { id } = useParams();
 
