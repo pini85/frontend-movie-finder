@@ -1,4 +1,5 @@
 import React from 'react';
+import { createRoot } from 'react-dom/client';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { store } from './redux/configureStore';
@@ -21,16 +22,17 @@ const queryClient = new QueryClient(queryConfig);
 //   worker.start();
 //   worker.printHandlers();
 // }
+const container = document.getElementById('root');
+const root = createRoot(container);
 
-ReactDOM.render(
+root.render(
   <QueryClientProvider client={queryClient}>
     <Provider store={store}>
       <GlobalStyle />
       <App />
     </Provider>
     <ReactQueryDevtools />
-  </QueryClientProvider>,
-  document.getElementById('root')
+  </QueryClientProvider>
 );
 if (process.env.NODE_ENV === 'production') {
   console.log = function () {};
