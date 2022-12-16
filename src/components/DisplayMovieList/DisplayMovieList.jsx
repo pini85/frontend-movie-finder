@@ -1,7 +1,7 @@
 import useSavedMovies from 'hooks/reactQuery/useSavedMovies.hooks';
 import { useSelector } from 'react-redux';
 import * as S from './displayMovieList.styles';
-import Card from 'components/Card/Card';
+import Card from 'components/Card/Card.jsx';
 
 const DisplayMovieList = ({ data }) => {
   console.log({ data });

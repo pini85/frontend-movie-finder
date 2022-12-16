@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import DisplayMovieList from 'components/DisplayMovieList/DisplayMovieList.component';
+import DisplayMovieList from 'components/DisplayMovieList/DisplayMovieList.jsx';
 import CategoryTitle from 'components/CategoryTitle/CategoryTitle.component';
 import * as S from './SavedMovies.styles';
 import useSavedMovies from 'hooks/reactQuery/useSavedMovies.hooks';
