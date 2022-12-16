@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import Options from 'components/Options/Options.component';
 import CategoryTitle from 'components/CategoryTitle/CategoryTitle.component';
 import Pagination from 'components/Pagination/Pagination.component';
-import DisplayMovieList from 'components/DisplayMovieList/DisplayMovieList.component';
+import DisplayMovieList from 'components/DisplayMovieList/DisplayMovieList.jsx';
 import { latestMovies, highestRated } from 'utlis/apiTabObjects';
 
 const Movies = () => {

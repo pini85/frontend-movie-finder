@@ -1,6 +1,3 @@
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { displayTheme } from 'redux/actions';
 import Modal from 'components/Modal/Modal.component';
 import Button from 'components/Button/Button';
 

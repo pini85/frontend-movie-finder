@@ -1,6 +1,6 @@
-import AdvancedSearchNewView from './components/AdvancedSearchNewForm.js';
-import AdvancedSearchResults from './components/AdvancedSearchResults/AdvancedSearchResults.js';
-import AdvancedSearchSaved from './components/AdvancedSearchSaved/AdvancedSearchSaved.js';
+import AdvancedSearchNewView from './components/AdvancedSearchNewForm.jsx';
+import AdvancedSearchResults from './components/AdvancedSearchResults/AdvancedSearchResults.jsx';
+import AdvancedSearchSaved from './components/AdvancedSearchSaved/AdvancedSearchSaved.jsx';
 import CategoryTitle from 'components/CategoryTitle/CategoryTitle.component';
 import { AdvancedFormProvider } from './context/advancedSearchFormContext';
 import * as S from './AdvancedSearchNew.styles.js';

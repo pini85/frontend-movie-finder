@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
-import { tmdbMovieSliderApi } from 'apis/tmdbApi';
+import { tmdbMovieSliderApi } from '../../apis/tmdbApi';
 import { highestRated, latestMovies } from 'utlis/apiTabObjects';
 
 import Carousel from 'components/Carousel/carousel.component';
 import Footer from 'layouts/Footer/Footer.component';
 import Options from 'components/Options/Options.component';
-import DisplayMovieList from 'components/DisplayMovieList/DisplayMovieList.component';
+import DisplayMovieList from 'components/DisplayMovieList/DisplayMovieList.jsx';
 import MovieSlider from 'components/MovieSlider/MovieSlider.component';
 
 import * as S from './Home.styles';

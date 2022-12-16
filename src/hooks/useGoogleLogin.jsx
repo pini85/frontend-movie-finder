@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setUser } from 'redux/slices/user.slice';
+import { setUser } from '../redux/slices/user.slice.js';
 
 const useGoogleLogin = (url) => {
   const [loading, setLoading] = useState(false);

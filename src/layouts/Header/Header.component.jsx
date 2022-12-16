@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { setHeaderHeight } from 'redux/slices/ui.slice';
+import { setHeaderHeight } from '../../redux/slices/ui.slice';
 
 import { useLayoutEffect, useRef } from 'react';
 import * as S from './header.styles';

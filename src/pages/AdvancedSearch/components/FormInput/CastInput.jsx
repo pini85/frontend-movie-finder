@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useAdvancedForm } from 'pages/AdvancedSearch/context/advancedSearchFormContext';
 import { useQuery, useMutation, useLazyQuery, queryClient } from 'react-query';
-import { tmdbCastId } from 'apis/tmdbApi';
+import { tmdbCastId } from '../../../../apis/tmdbApi';
 import Button from 'components/Button/Button';
 import CastSuggestion from 'components/CastSuggestion/CastSuggestion.component';
 import AnimateInput from './AnimateInput';

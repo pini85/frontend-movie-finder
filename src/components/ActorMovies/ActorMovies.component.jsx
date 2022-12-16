@@ -4,7 +4,7 @@ import { useQuery } from 'react-query';
 import { tmdbCastMoviesApi, tmdbCastId } from 'apis/tmdbApi';
 import CategoryTitle from 'components/CategoryTitle/CategoryTitle.component';
 import Pagination from 'components/Pagination/Pagination.component';
-import DisplayMovieList from 'components/DisplayMovieList/DisplayMovieList.component';
+import DisplayMovieList from 'components/DisplayMovieList/DisplayMovieList.jsx';
 const ActorMovies = () => {
   const { name, page } = useParams();
 
@@ -12,13 +12,9 @@ const ActorMovies = () => {
 
   const id = castId?.results[0].id;
 
-  const { data: movies } = useQuery(
-    [name, page],
-    () => tmdbCastMoviesApi(id, page),
-    {
-      enabled: !!id,
-    }
-  );
+  const { data: movies } = useQuery([name, page], () => tmdbCastMoviesApi(id, page), {
+    enabled: !!id,
+  });
 
   const title = `${name}'s movies`;
 

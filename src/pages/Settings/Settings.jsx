@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import CategoryTitle from 'components/CategoryTitle/CategoryTitle.component';
 import * as S from './Settings.styles.js';
-import ListOfOptions from './components/ListOfOptions/ListOfOptions.js';
+import ListOfOptions from './components/ListOfOptions/ListOfOptions.jsx';
 
 const Settings = () => {
   const listOfSpinners = ['bouncing dvd', 'camera', 'spin'];
