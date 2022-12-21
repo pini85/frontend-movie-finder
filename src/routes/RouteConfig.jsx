@@ -1,11 +1,14 @@
 import React, { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Home from '../pages/Home/Home.component.jsx';
 import ScrollIntoView from '../components/ScrollIntoView.component.jsx';
 import Header from '../layouts/Header/Header.component.jsx';
 import MainNavigation from '../layouts/Header/components/MainNavigation.components.jsx';
+import PrivateRoute from './PrivateRoute.jsx';
 
 const RouteConfig = () => {
+  const user = useSelector((state) => state?.user?.user);
   const ShowMovie = lazy(() => import('../components/ShowMovie/ShowMovie.component.jsx'));
   const Movies = lazy(() => import('../pages/Movies/Movies.component.jsx'));
   const TvShows = lazy(() => import('../components/TvShows/TvShows.component.jsx'));
@@ -47,9 +50,17 @@ const RouteConfig = () => {
             <Route path="movies/actors/:name/page/:page" element={<ActorMovies />} />
             <Route exact path="/settings" element={<Settings />} />
             {/* <Route exact path="/spinner/" element={<Film />} /> */}
-            <Route exact path="/savedmovies" element={<SavedMovies />} />
+
             <Route exact path="/watch/:id" element={<Watch />} />
             {/* <Route exact path="/watch" element={<Watch />} /> */}
+            <Route
+              path="/savedmovies"
+              element={
+                <PrivateRoute user={user}>
+                  <SavedMovies />
+                </PrivateRoute>
+              }
+            />
           </Routes>
         </Suspense>
       </ScrollIntoView>
