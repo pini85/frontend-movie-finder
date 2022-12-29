@@ -20,7 +20,7 @@ const CirclePercentage = ({ colors, rating }) => {
         </div>
 
         <div className="inside-circle">
-          {rating}%
+          {rating.toFixed()}%
           <div
             style={{ backgroundColor: colors.lightVibrant }}
             className="inside-circle-background"

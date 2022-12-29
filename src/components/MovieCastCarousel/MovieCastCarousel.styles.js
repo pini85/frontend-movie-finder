@@ -33,8 +33,9 @@ export const Container = styled.div`
   border-top-right-radius: 120px; */
 `;
 const noPhotoStyles = `
-height: 14rem;
-width:14rem
+height: 21rem;
+width:16rem;
+object-fit:cover
 `;
 export const Img = styled.img`
   border-radius: 10px;
