@@ -24,6 +24,9 @@ const RouteConfig = () => {
   const ActorMovies = lazy(() =>
     import('../components/ActorMovies/ActorMovies.component.jsx')
   );
+  const AIGeneratedMovies = lazy(() =>
+    import('pages/AIGeneratedMovies/AIGeneratedMovies.jsx')
+  );
   const Settings = lazy(() => import('../pages/Settings/Settings.jsx'));
   const SavedMovies = lazy(() =>
     import('../components/SavedMovies/SavedMovies.component.jsx')
@@ -48,6 +51,7 @@ const RouteConfig = () => {
             <Route path="/search/:type/:query/page/:page" element={<MovieListSearch />} />
             <Route path="/popular-actors/page/:page" element={<PopularActors />} />
             <Route path="movies/actors/:name/page/:page" element={<ActorMovies />} />
+            <Route path="/ai-generated-movies" element={<AIGeneratedMovies />} />
             <Route exact path="/settings" element={<Settings />} />
             {/* <Route exact path="/spinner/" element={<Film />} /> */}
 

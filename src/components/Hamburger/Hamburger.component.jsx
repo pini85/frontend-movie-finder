@@ -9,7 +9,7 @@ const Hamburger = () => {
   const [toggleHamburger, setToggleHamburger] = useState(false);
   const location = useLocation();
   const handleClick = (e) => {
-    e.stopPropagation();
+    // e.stopPropagation();
     setToggleHamburger((value) => !value);
   };
 

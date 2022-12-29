@@ -1,12 +1,14 @@
 import styled from 'styled-components/macro';
+import { NavLink } from 'react-router-dom';
 
 export const Container = styled.div`
   position: absolute;
-  top: 22px;
+  top: 29px;
   left: -61px;
   background: var(--secondary-color);
   border: 2px solid var(--primary-color);
   border-bottom-right-radius: 10px;
+  width: max-content;
 `;
 
 export const SearchContainer = styled.div`

@@ -15,17 +15,11 @@ const MainNavigation = () => {
 
   return (
     <>
-      {width < 1050 && <Hamburger />}
-      {width > 1050 && (
-        <>
-          <Logo />
-          <NavigationLinks />
-        </>
-      )}
+      <Hamburger />
       <S.NavigationWrapper>
         {currentUser && <IconLink link="/savedMovies" icon="heart" />}
         <Login />
-        {width > 650 && (
+        {width > 700 && (
           <>
             <Customize />
             <LightSwitch />

@@ -8,14 +8,15 @@ import useWidth from '../../hooks/useWidth.hooks';
 import { navLinks } from 'utlis/applicationData';
 const Navigation = ({ setOpen }) => {
   const width = useWidth().width;
-  const handleClick = () => {
-    setOpen();
+  const handleClick = (e) => {
+    e.stopPropagation();
+    setOpen(false);
   };
 
   const renderLinks = () => {
     return navLinks.map((el, i) => {
       return (
-        <Link key={i} onClick={handleClick} to={el.link}>
+        <Link key={i} onClick={(e) => handleClick(e)} to={el.link}>
           <S.Option>{el.title}</S.Option>
         </Link>
       );
@@ -23,7 +24,7 @@ const Navigation = ({ setOpen }) => {
   };
 
   return (
-    <S.Container onClick={(e) => e.stopPropagation()}>
+    <S.Container>
       {width < 650 && (
         <>
           <S.CustomizeContainer>
