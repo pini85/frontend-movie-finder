@@ -6,6 +6,8 @@ import ScrollIntoView from '../components/ScrollIntoView.component.jsx';
 import Header from '../layouts/Header/Header.component.jsx';
 import MainNavigation from '../layouts/Header/components/MainNavigation.components.jsx';
 import PrivateRoute from './PrivateRoute.jsx';
+import Film from 'components/Spinners/Film/Film.component.jsx';
+import SpinnerContainer from 'components/Spinners/SpinnerContainer/SpinnerContainer.jsx';
 
 const RouteConfig = () => {
   const user = useSelector((state) => state?.user?.user);
@@ -27,6 +29,9 @@ const RouteConfig = () => {
   const AIGeneratedMovies = lazy(() =>
     import('pages/AIGeneratedMovies/AIGeneratedMovies.jsx')
   );
+  const AIGeneratedMoviesByCategory = lazy(() =>
+    import('pages/AIGeneratedMovies/components/AiMoviesByCategory/AiMoviesByCategory.jsx')
+  );
   const Settings = lazy(() => import('../pages/Settings/Settings.jsx'));
   const SavedMovies = lazy(() =>
     import('../components/SavedMovies/SavedMovies.component.jsx')
@@ -40,7 +45,13 @@ const RouteConfig = () => {
         <Header>
           <MainNavigation />
         </Header>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense
+          fallback={
+            <SpinnerContainer>
+              <Film />
+            </SpinnerContainer>
+          }
+        >
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route path="/movie/:id" element={<ShowMovie />} />
@@ -52,6 +63,10 @@ const RouteConfig = () => {
             <Route path="/popular-actors/page/:page" element={<PopularActors />} />
             <Route path="movies/actors/:name/page/:page" element={<ActorMovies />} />
             <Route path="/ai-generated-movies" element={<AIGeneratedMovies />} />
+            <Route
+              path="/ai-generated-movies/:categoryName"
+              element={<AIGeneratedMoviesByCategory />}
+            />
             <Route exact path="/settings" element={<Settings />} />
             {/* <Route exact path="/spinner/" element={<Film />} /> */}
 

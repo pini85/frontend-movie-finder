@@ -32,3 +32,20 @@ export const watchTorrent = async (magnet) => {
 
   return await api.get(`/api/watch?torrent=${link}`);
 };
+
+export const getMovieCategories = async () => {
+  return await api.get(`/api/ai/movieCategories`);
+};
+export const getNewCategory = async () => {
+  return await api.post(`/api/ai/generateCategory`);
+};
+export const getMoviesByCategory = async (categoryName) => {
+  return await api.get(`/api/ai/moviesByCategory/${categoryName}`);
+};
+
+export const getNewMoviesByCategory = async (categoryName, numberOfMovies = 14) => {
+  return await api.post('/api/ai/generateMoviesByCategory', {
+    categoryName,
+    numberOfMovies,
+  });
+};

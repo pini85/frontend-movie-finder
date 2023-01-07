@@ -4,7 +4,6 @@ import * as S from './displayMovieList.styles';
 import Card from 'components/Card/Card.jsx';
 
 const DisplayMovieList = ({ data }) => {
-  console.log({ data });
   const userId = useSelector((state) => state.user?.user?._id);
   const { savedMovies } = useSavedMovies(userId);
 
@@ -15,11 +14,11 @@ const DisplayMovieList = ({ data }) => {
   };
 
   const renderCards = () => {
-    return data.map((movie) => {
+    return data.map((movie, i) => {
+      console.log(movie.id);
       const isSaved = findSavedMovies(movie.id);
-
       if (movie === null) return;
-      return <Card key={movie.id} movie={movie} isSaved={isSaved}></Card>;
+      return <Card key={i} movie={movie} isSaved={isSaved}></Card>;
     });
   };
 

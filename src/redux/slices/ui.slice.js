@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   theme: 'default-theme',
-  spinner: 'bouncing dvd',
+  spinner: 'camera',
   headerHeight: 0,
 };
 export const uiSlice = createSlice({
