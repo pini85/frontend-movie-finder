@@ -1,4 +1,4 @@
-import * as S from './SpinnerContainer.styles.jsx';
+import * as S from './spinnerContainer.styles.jsx';
 const SpinnerContainer = ({ children }) => {
   return (
     <S.Container>
