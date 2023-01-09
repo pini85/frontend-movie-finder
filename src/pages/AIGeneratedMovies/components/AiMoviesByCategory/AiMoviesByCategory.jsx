@@ -5,12 +5,12 @@ import useGetMoviesByCategories from 'hooks/reactQuery/AI/useGetMoviesByCategory
 import useGetNewMoviesByCategories from 'hooks/reactQuery/AI/useGetNewMoviesByCategory';
 import Film from 'components/Spinners/Film/Film.component.jsx';
 import SpinnerContainer from 'components/Spinners/SpinnerContainer/SpinnerContainer.jsx';
+import CategoryTitle from 'components/CategoryTitle/CategoryTitle.component.jsx';
 const AiMoviesByCategory = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { categoryName } = useParams();
   const { mutation } = useGetNewMoviesByCategories(categoryName);
   const { data } = useGetMoviesByCategories(categoryName);
-  console.log({ data });
 
   useEffect(() => {
     if (!data) return;
@@ -31,7 +31,12 @@ const AiMoviesByCategory = () => {
     const getFirstMovie = data.mainMovie;
     const restOfMovies = data.movies;
     const movies = [getFirstMovie, ...restOfMovies];
-    return <DisplayMovieList data={movies} />;
+    return (
+      <>
+        <CategoryTitle title={categoryName} />
+        <DisplayMovieList data={movies} />;
+      </>
+    );
   }
 };
 export default AiMoviesByCategory;

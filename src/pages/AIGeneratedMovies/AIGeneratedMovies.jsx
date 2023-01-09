@@ -7,6 +7,7 @@ import CategoryCard from './components/CategoryCard/CategoryCard.jsx';
 import Film from 'components/Spinners/Film/Film.component.jsx';
 import Spin from 'components/Spinners/Spin/Spin.component.jsx';
 import SpinnerContainer from 'components/Spinners/SpinnerContainer/SpinnerContainer.jsx';
+
 const AIGeneratedMovies = () => {
   const { data: categories, isFetching, isLoading } = useGetMovieCategories();
   const { mutation } = useGetNewCategory();

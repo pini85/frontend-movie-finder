@@ -10,19 +10,9 @@ export const Attention = styled.h2`
   color: var(--text-white);
   margin-bottom: 3rem;
 `;
-
-export const MagnetContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-`;
-export const Magnet = styled.a`
+export const Magnet = styled.div`
   color: var(--primary-color);
   font-size: 2rem;
   /* display: inline-block;
   background-color: #fff; */
-`;
-export const MagnetDetails = styled.div`
-  color: var(--text-white);
 `;
