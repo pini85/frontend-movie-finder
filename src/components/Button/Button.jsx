@@ -2,6 +2,7 @@ import React from 'react';
 import { ButtonContainer } from './button.styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import google from '../../assets/images/google.svg';
 
 const Button = (props) => {
@@ -15,6 +16,8 @@ const Button = (props) => {
             <img src={google} alt="google" />
           </span>
         );
+      case 'watch':
+        return <FontAwesomeIcon icon={faPlay} />;
 
       default:
         return null;

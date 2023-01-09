@@ -50,7 +50,7 @@ const Card = ({ movie, isSaved }) => {
           <S.Gradient>
             <S.ButtonContainer>
               <Button title="Details" handleClick={handleNavigation} />
-              <Button title="Watch" handleClick={handleWatch} />
+              <Button icon="watch" handleClick={handleWatch} />
             </S.ButtonContainer>
           </S.Gradient>
           {user && <SaveMovie movie={movie} isSaved={isSaved} />}
